@@ -84,14 +84,30 @@ int main_menu(){
 // select a random age between 0 and MAX_AGE.
 // When asking user to select a certain goat, display a formatted submenu, allowing
 // the user to input an interger to reference the correct goat.
+
+// add_goat adds a goat to the list.
+// arguments: list of goats, string array of names, string array of colors.
+// returns: void
 void add_goat(list<Goat> &trip, string names[], string colors[]){
 
 }
 
+// delete_goat deletes a goat from the list.
+// arguments: list of goats.
+// returns: void
 void delete_goat(list<Goat> &trip){
 
 }
 
+// display_trip outputs a display of the goats on the trip.
+// arguments: list of goats.
+// retuns: void
 void display_trip(list<Goat> trip){
+    if (trip.empty()){
+        cout << "The list is empty, therfore no goats are on a trip.";
+    }
 
+    for ( Goat list : trip){
+        cout << "Goat added: " << endl;
+    }
 }

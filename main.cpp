@@ -22,22 +22,28 @@ int main() {
     bool again;
 
     // Reads & populates arrays for names and colors
-    ifstream fin("names.txt"); // Opens txt of names
-    string names[SZ_NAMES];
+    ifstream fin("names.txt"); // Opens names.txt
+    string names[SZ_NAMES]; // String array of 200 names
     int i = 0;
     while (fin >> names[i++]);
-    fin.close();
-    ifstream fin1("colors.txt"); // Opens txt of colors
-    string colors[SZ_COLORS];
+    fin.close(); // Closes out of names.txt
+    ifstream fin1("colors.txt"); // Opens colors.txt
+    string colors[SZ_COLORS]; // String array of 25 colors
     i = 0;
     while (fin1 >> colors[i++]);
-    fin1.close(); // Closes out of the files
+    fin1.close(); // Closes out of colors.txt
+
+    // Default construction
+    list<Goat> trip; // Initialized std::list of goats on the trip
 
     // Task two
     // Write a GM3K1 engine that loops on this menu.
     // Write a main_menu() function that outputs this and then obtains,
     // validates, and returns the user's choice.
-    main_menu();
+    while (true){ // Loop of the menu
+        int choice = main_menu();
+
+    }
 
     return 0;
 }
@@ -75,6 +81,7 @@ int main_menu(){
         cout << "You have chosen to exit the program, goodbye!" << endl << endl;
         return 1; // Ends program
     }
+    return choice;
 }
 
 // Task Three
@@ -89,7 +96,7 @@ int main_menu(){
 // arguments: list of goats, string array of names, string array of colors.
 // returns: void
 void add_goat(list<Goat> &trip, string names[], string colors[]){
-
+    // Select random name, color, and age
 }
 
 // delete_goat deletes a goat from the list.

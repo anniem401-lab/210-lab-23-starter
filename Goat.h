@@ -5,14 +5,22 @@
 #include <iostream>
 using namespace std;
 
+// Task One: Completed
+// Write three more constuctors for the Goat Class:
+//One that has just the name as an argument;
+//One twith name and age; and the last for all parameters.
+
 class Goat {
 private:
     string name;
     int age;
     string color;
 public: 
-    Goat()                          { name = ""; age = 0; color = ""; }
+    Goat()  { name = ""; age = 0; color = ""; } // Default parameter
     // write three more constructors
+    Goat(string n)  {name = n;} // Partial parameter
+    Goat(string n, int a)   {name = n; age = a;} // Partial parameter
+    Goat(string n, int a, string c) {name = n; age = a; color = c;} // Full parameter
 
     // setters and getters
     void set_name(string n)         { name = n; };

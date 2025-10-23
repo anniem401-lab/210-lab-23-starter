@@ -10,10 +10,11 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
+// Function prototypes
 int select_goat(list<Goat> trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
-void display_trip(list<Goat> trip);
+void delete_goat(list<Goat> &trip); // Deletes a goat on trip.
+void add_goat(list<Goat> &trip, string [], string []); // Adds a goat on trip.
+void display_trip(list<Goat> trip); // Displays the goats on trip.
 int main_menu(); // Main menu function that loops in main.
 
 int main() {
@@ -60,7 +61,7 @@ int main_menu(){
     }
     if (choice = 1){
         cout << "You chose to add a goat." << endl;
-        // Code to add a goat
+        // add_goat function
     }
     if (choice = 2){
         cout << "You chose to delete a goat." << endl;
@@ -74,4 +75,23 @@ int main_menu(){
         cout << "You have chosen to exit the program, goodbye!" << endl << endl;
         return 1; // Ends program
     }
+}
+
+// Task Three
+// Write functions to add a goat to the trip, delete a a goat from the trip, and
+// display the current trip.
+// When adding a goat, randomly select a name and color from main()'s arrays and
+// select a random age between 0 and MAX_AGE.
+// When asking user to select a certain goat, display a formatted submenu, allowing
+// the user to input an interger to reference the correct goat.
+void add_goat(list<Goat> &trip, string names[], string colors[]){
+
+}
+
+void delete_goat(list<Goat> &trip){
+
+}
+
+void display_trip(list<Goat> trip){
+
 }

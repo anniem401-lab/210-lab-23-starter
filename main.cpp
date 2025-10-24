@@ -6,6 +6,8 @@
 #include <iomanip>
 #include <list> // To use std::list
 #include "Goat.h" // A complete class for Goat objects
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
@@ -67,7 +69,7 @@ int main_menu(){
     }
     if (choice = 1){
         cout << "You chose to add a goat." << endl;
-        // add_goat function
+        add_goat(trip, names, colors);
     }
     if (choice = 2){
         cout << "You chose to delete a goat." << endl;
@@ -95,8 +97,15 @@ int main_menu(){
 // add_goat adds a goat to the list.
 // arguments: list of goats, string array of names, string array of colors.
 // returns: void
-void add_goat(list<Goat> &trip, string names[], string colors[]){
+void add_goat(list<Goat>& trip, string names[], string colors[]){
     // Select random name, color, and age
+    string name = names[rand() % SZ_NAMES];
+    string color = colors[rand() % SZ_COLORS];
+    int age = 1 + (rand() % MAX_AGE);
+
+    trip.push_back(Goat(name, age, color));
+
+    cout << "Goat added: " << trip.back().get_name() << endl;
 }
 
 // delete_goat deletes a goat from the list.

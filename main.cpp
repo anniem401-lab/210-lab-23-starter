@@ -110,11 +110,13 @@ void add_goat(list<Goat>& trip, string names[], string colors[]){
 // arguments: list of goats.
 // returns: void
 void delete_goat(list<Goat> &trip){
+    auto it = trip.begin();
+    advance(it);
+    trip.erase(it)
 
-    for (Goat erase: trip) {
-        cout << "Goat deleted" << endl;
+    for (auto i : trip){
+        cout << i << " " << endl;
     }
-
 }
 
 // display_trip outputs a display of the goats on the trip.
@@ -127,6 +129,6 @@ void display_trip(list<Goat> trip){
 
     int i = 1;
     for ( Goat& list: trip){
-        cout << "[" << i++ << "]" << list.get_name() << endl;
+        cout << "[" << i++ << "]" << list.get_name() << " (" << list.get_age() << ", " << list.get_color() << ") \n";
     }
 }

@@ -45,6 +45,17 @@ int main() {
     while (true){ // Loop of the menu
         int choice = main_menu();
 
+        switch(choice){
+            case 1: cout << "You chose to add a goat." << endl; add_goat(trip, names, colors);
+                    break;
+            case 2: cout << "You chose to delete a goat." << endl;
+                    break;
+            case 3: cout << "You chose to list goats." << endl;
+                    break;
+            case 4: cout << "You have chosen to exit the program, goodbye!" << endl << endl;
+                    return 0;      
+        }
+        return 1; // Ends program to break infinite loop
     }
 
     return 0;
@@ -67,22 +78,7 @@ int main_menu(){
         cout << "Invalid choice. Please enter 1, 2, 3, or 4: ";
         cin >> choice;
     }
-    if (choice = 1){
-        cout << "You chose to add a goat." << endl;
-        add_goat(trip, names, colors);
-    }
-    if (choice = 2){
-        cout << "You chose to delete a goat." << endl;
-        // Code to delete a goat
-    }
-    if (choice = 3){
-        cout << "You chose to list goats." << endl;
-        // Code to list goats
-    }
-    if (choice = 4){ // To exit the program
-        cout << "You have chosen to exit the program, goodbye!" << endl << endl;
-        return 1; // Ends program
-    }
+
     return choice;
 }
 
@@ -105,7 +101,7 @@ void add_goat(list<Goat>& trip, string names[], string colors[]){
 
     trip.push_back(Goat(name, age, color));
 
-    cout << "Goat added: " << trip.back().get_name() << endl;
+    cout << "Goat added: " << name << age << color << endl;
 }
 
 // delete_goat deletes a goat from the list.

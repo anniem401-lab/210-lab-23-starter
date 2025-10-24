@@ -2,7 +2,7 @@
 // IDE used: Visual Studio Code
 
 #include <iostream>
-#include <fstream> // For file operation
+#include <fstream> // For file operations
 #include <iomanip>
 #include <list> // To use std::list
 #include "Goat.h" // A complete class for Goat objects
@@ -25,11 +25,13 @@ int main() {
 
     // Reads & populates arrays for names and colors
     ifstream fin("names.txt"); // Opens names.txt
+    if (!fin) throw "I/O Error"; // Error handling
     string names[SZ_NAMES]; // String array of 200 names
     int i = 0;
     while (fin >> names[i++]);
     fin.close(); // Closes out of names.txt
     ifstream fin1("colors.txt"); // Opens colors.txt
+    if (!fin) throw "I/O Error"; // Error handling
     string colors[SZ_COLORS]; // String array of 25 colors
     i = 0;
     while (fin1 >> colors[i++]);
@@ -101,13 +103,17 @@ void add_goat(list<Goat>& trip, string names[], string colors[]){
 
     trip.push_back(Goat(name, age, color));
 
-    cout << "Goat added: " << name << age << color << endl;
+    cout << "Goat added: " << name << " (" << age << ", " << color << ")" << endl;
 }
 
 // delete_goat deletes a goat from the list.
 // arguments: list of goats.
 // returns: void
 void delete_goat(list<Goat> &trip){
+
+    for (Goat erase: trip) {
+        cout << "Goat deleted" << endl;
+    }
 
 }
 
@@ -119,7 +125,8 @@ void display_trip(list<Goat> trip){
         cout << "The list is empty, therfore no goats are on a trip.";
     }
 
-    for ( Goat list : trip){
-        cout << "Goat added: " << endl;
+    int i = 1;
+    for ( Goat& list: trip){
+        cout << "[" << i++ << "]" << list.get_name() << endl;
     }
 }

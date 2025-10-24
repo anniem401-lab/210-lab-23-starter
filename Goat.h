@@ -7,8 +7,8 @@ using namespace std;
 
 // Task One: Completed
 // Write three more constuctors for the Goat Class:
-//One that has just the name as an argument;
-//One with name and age; and the last for all parameters.
+// One that has just the name as an argument;
+// One with name and age; and the last for all parameters.
 
 class Goat {
 private:

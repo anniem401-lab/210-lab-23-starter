@@ -13,7 +13,7 @@ using namespace std;
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
 // Function prototypes
-int select_goat(list<Goat> trip);
+int select_goat(list<Goat> trip); // Allows the user to select a goat from list.
 void delete_goat(list<Goat> &trip); // Deletes a goat on trip.
 void add_goat(list<Goat> &trip, string [], string []); // Adds a goat on trip.
 void display_trip(list<Goat> trip); // Displays the goats on trip.
@@ -30,8 +30,9 @@ int main() {
     int i = 0;
     while (fin >> names[i++]);
     fin.close(); // Closes out of names.txt
+
     ifstream fin1("colors.txt"); // Opens colors.txt
-    if (!fin) throw "I/O Error"; // Error handling
+    if (!fin1) throw "I/O Error"; // Error handling
     string colors[SZ_COLORS]; // String array of 25 colors
     i = 0;
     while (fin1 >> colors[i++]);
@@ -84,6 +85,10 @@ int main_menu(){
     return choice;
 }
 
+int select_goat(list<Goat> trip){
+    
+}
+
 // Task Three
 // Write functions to add a goat to the trip, delete a a goat from the trip, and
 // display the current trip.
@@ -110,13 +115,14 @@ void add_goat(list<Goat>& trip, string names[], string colors[]){
 // arguments: list of goats.
 // returns: void
 void delete_goat(list<Goat> &trip){
-    auto it = trip.begin();
-    advance(it);
-    trip.erase(it)
-
-    for (auto i : trip){
-        cout << i << " " << endl;
+    if (trip.empty()){
+        cout << "No goats to delete. \n";
+        return;
     }
+
+    auto it = trip.begin();
+    if (it != trip.end())
+    trip.erase(it);
 }
 
 // display_trip outputs a display of the goats on the trip.
@@ -124,11 +130,12 @@ void delete_goat(list<Goat> &trip){
 // retuns: void
 void display_trip(list<Goat> trip){
     if (trip.empty()){
-        cout << "The list is empty, therfore no goats are on a trip.";
+        cout << "The list is empty, therfore no goats are on a trip. \n";
+        return;
     }
 
     int i = 1;
-    for ( Goat& list: trip){
-        cout << "[" << i++ << "]" << list.get_name() << " (" << list.get_age() << ", " << list.get_color() << ") \n";
+    for ( Goat& g: trip){
+        cout << "[" << i++ << "]" << g.get_name() << " (" << g.get_age() << ", " << g.get_color() << ") \n";
     }
 }

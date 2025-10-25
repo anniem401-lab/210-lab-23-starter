@@ -51,9 +51,9 @@ int main() {
         switch(choice){
             case 1: cout << "You chose to add a goat." << endl; add_goat(trip, names, colors);
                     break;
-            case 2: cout << "You chose to delete a goat." << endl;
+            case 2: cout << "You chose to delete a goat." << endl; delete_goat(trip);
                     break;
-            case 3: cout << "You chose to list goats." << endl;
+            case 3: cout << "You chose to list goats." << endl; display_trip(trip);
                     break;
             case 4: cout << "You have chosen to exit the program, goodbye!" << endl << endl;
                     return 0;      
@@ -93,7 +93,7 @@ int select_goat(list<Goat> trip){
     display_trip(trip); // List of goats on the trip.
     cout << "Choice --> ";
     cin >> option; // Option user makes.
-    while (option < 1 && option > trip.size()){ // Validation loop.
+    while (option < 1 || option > trip.size()){ // Validation loop.
         cout << "Invalid choice. Please enter a number of a goat on the list: ";
         cin >> option;
     }
@@ -130,23 +130,23 @@ void delete_goat(list<Goat> &trip){
         cout << "No goats to delete. \n";
         return;
     }
-
+    int index = select_goat(trip);
     auto it = trip.begin();
-    if (it != trip.end())
+    advance (it, index - 1);
     trip.erase(it);
 }
 
 // display_trip outputs a display of the goats on the trip.
 // arguments: list of goats.
-// retuns: void
+// returns: void
 void display_trip(list<Goat> trip){
     if (trip.empty()){
-        cout << "The list is empty, therfore no goats are on a trip. \n";
+        cout << "The list is empty, therefore no goats are on a trip. \n";
         return;
     }
 
     int i = 1;
-    for ( Goat& g: trip){
-        cout << "[" << i++ << "]" << g.get_name() << " (" << g.get_age() << ", " << g.get_color() << ") \n";
+    for ( Goat& g: trip){ // Displays the list of goats with name, age, color, and an index number
+        cout << "[" << i++ << "] " << g.get_name() << " (" << g.get_age() << ", " << g.get_color() << ") \n";
     }
 }

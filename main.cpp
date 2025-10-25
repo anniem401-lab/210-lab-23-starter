@@ -58,7 +58,7 @@ int main() {
             case 4: cout << "You have chosen to exit the program, goodbye!" << endl << endl;
                     return 0;      
         }
-        return 1; // Ends program to break infinite loop
+        // return 1; // Ends program to break infinite loop: Temporary
     }
 
     return 0;
@@ -76,17 +76,28 @@ int main_menu(){
 
     int choice;
     cout << "Choice --> ";
-    cin >> choice;
-    while (choice != 1 && choice != 2 && choice != 3 && choice != 4){
+    cin >> choice; // Choice user makes.
+    while (choice != 1 && choice != 2 && choice != 3 && choice != 4){ // Validation loop
         cout << "Invalid choice. Please enter 1, 2, 3, or 4: ";
         cin >> choice;
     }
-
     return choice;
 }
 
+// select_goat allows the user to select a goat from the list.
+// arguments: list of goats.
+// returns: The option user inputs.
 int select_goat(list<Goat> trip){
-    
+    int option;
+    cout << "Select a goat:\n";
+    display_trip(trip); // List of goats on the trip.
+    cout << "Choice --> ";
+    cin >> option; // Option user makes.
+    while (option < 1 && option > trip.size()){ // Validation loop.
+        cout << "Invalid choice. Please enter a number of a goat on the list: ";
+        cin >> option;
+    }
+    return option;
 }
 
 // Task Three

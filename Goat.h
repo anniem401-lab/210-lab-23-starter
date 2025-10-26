@@ -31,6 +31,12 @@ public:
     string get_color() const        { return color; }
 
     // write overloaded < operator for the std::list
+    // bool operator allows sorting to occur, which uses name from the private member variable.
+    // arguments: Goat
+    // returns: name after it has been compared with another name.
+    bool operator< (const Goat &other) const {
+        return name < other.name;
+    }
 };
 
 #endif
